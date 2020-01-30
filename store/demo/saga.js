@@ -1,4 +1,4 @@
-import { DEMO_SAGA_ACTION, DEMO_SAGA_ASYNC_ACTION } from "./types";
+import { DEMO_REQUEST, DEMO_SUCCESS, DEMO_FAILURE } from "./types";
 import {
   all,
   // call,
@@ -11,25 +11,24 @@ import {
 
 function* getDemoSaga(action) {
   try {
-    console.log("b");
     // call api
     yield delay(3000);
     // put action
     yield put({
-      type: DEMO_SAGA_ASYNC_ACTION,
+      type: DEMO_SUCCESS,
       payload: "demo saga activated"
     });
   } catch (e) {
     // error log
     console.error(e);
     // error action
-    // yield put({ type: GET_TODOS_FAILED });
+    yield put({ type: DEMO_FAILURE });
   }
 }
 
 // watcher
 function* actionWatcher() {
-  yield takeEvery(DEMO_SAGA_ACTION, getDemoSaga);
+  yield takeEvery(DEMO_REQUEST, getDemoSaga);
   // yield takeEvery(CREATE_TODO, createTodo);
 }
 
