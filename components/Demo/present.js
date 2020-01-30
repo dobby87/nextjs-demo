@@ -7,6 +7,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const Demo = () => {
+  console.log(cx("container"));
   const dispatch = useDispatch();
   const [localState, setLocalState] = useState("localState");
   const { str, obj, arr } = useSelector(state => state.demo);
