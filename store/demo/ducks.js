@@ -9,8 +9,10 @@ export const demoAction = payload => ({
 // initial state
 const initialState = {
   str: "asd",
-  obj: {},
-  arr: []
+  obj: {
+    title: "demo component"
+  },
+  arr: ["list1", "list2", "list3", "list4", "list5"]
 };
 
 // reducer
